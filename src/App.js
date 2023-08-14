@@ -1,23 +1,39 @@
-import logo from './logo.svg';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Home from './page/Home';
+import AddColor from './page/AddColor';
+import Color from "./page/Color"
+import { useState } from 'react';
+import { v4 as uuid } from 'uuid';
+
+const INITIAL_COLOR = [
+  {
+    id: uuid(),
+    name: "pink",
+    color: "pink"
+  },
+  {
+    id: uuid(),
+    name: "green",
+    color: "green"
+  }
+]
 
 function App() {
+  const [colorName, setColorName] = useState(INITIAL_COLOR);
+
+  function addNewColor(newColor) {
+    setColorName(prev => [{ id: uuid(), ...newColor }, ...prev]);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route exact path="/" element={<Navigate to="/colors" />} />
+        <Route path="/colors" element={<Home colorName={colorName} />} />
+        <Route path="/new" element={<AddColor addNewColor={addNewColor} />} />
+        <Route path="/colors/:color" element={<Color colorName={colorName} />} />
+      </Routes>
     </div>
   );
 }

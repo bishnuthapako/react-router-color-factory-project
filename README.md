@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+- 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## **Part 2: React Router Color Factory**
 
-## Available Scripts
+The goal of this exercise will be to use React Router to build an app that lets you view colors and add new colors.
 
-In the project directory, you can run:
+### **User Stories**
 
-### `npm start`
+1. As a user, I can go to */colors* to see a list of all available colors.
+2. As a user, I can click on one of the colors in my colors list and get taken to a page where I can see that color in all its glory.
+    
+    (The route here should be */colors/:color* )
+    
+3. As a user, I can click on a button to show a form that will let me add a new color.
+    
+    Note that you can give an *input* a type of *color* if you’re trying to select a color. (The route here should be */colors/new*)
+    
+4. As a user, when I submit my new color form, I am redirected to the colors index, and my new color appears at the top.
+5. As a user, if I try to navigate to a color page that does not exist (eg, */colors/nope*), I am redirected to the colors index page.
+6. As a user, if I try to navigate to an invalid url (eg, */this-is-not-valid*), I am redirected to the colors index page.
+Here’s an idea of what your app could look like:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+https://file.notion.so/f/s/9faa91ac-0a44-4c3c-af34-62dc4c8472f4/color.mp4?id=20a1ad6c-5409-4796-aa3f-ef9395b818e9&table=block&spaceId=163f1722-85e9-4a3c-adba-457a91094f00&expirationTimestamp=1692108000000&signature=zxHEzg2VDk9YBHpkVNP57PXRSbsePbYc37LXWQu_lco&downloadName=color.mp4
+## ****Further Study****
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Write tests for these applications!
+2. Persist your colors data in *localStorage*. (You should use useEffect for this).
+3. Add nice styling to your apps.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

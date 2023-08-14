@@ -33,10 +33,10 @@ function AddColor({addNewColor}) {
       <form onSubmit={handleSubmit}>
         <div className="mb-3 p-3" style={{width: "50%"}}>
           <label className='form-label'>Color name:</label>
-          <input type="text" onChange={handleInputData} className="form-control" id='form-label' name="name" value={formData.name} placeholder="Enter color name" />
+          <input type="text" onChange={handleInputData} className="form-control" id='form-label' name="name" value={formData.name} placeholder="Enter color name" required/>
           <div className='mb-3'>
           <label className='form-label'>Color Value:</label>
-          <input type="color" onChange={handleInputData} className="form-control form-control-color mb-2" id="form-label" name="color" value={formData.color} title="Choose your color"></input>
+          <input type="color" onChange={handleInputData} className="form-control form-control-color mb-2" id="form-label" name="color" value={formData.color} title="Choose your color" required />
           </div>
           <button type="submit" className="btn btn-light fw-bold">Add a color</button>
         </div>

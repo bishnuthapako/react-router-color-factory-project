@@ -25,6 +25,7 @@ function App() {
   function addNewColor(newColor) {
     setColorName(prev => [{ id: uuid(), ...newColor }, ...prev]);
   }
+  
 
   return (
     <div>
@@ -33,6 +34,7 @@ function App() {
         <Route path="/colors" element={<Home colorName={colorName} />} />
         <Route path="/new" element={<AddColor addNewColor={addNewColor} />} />
         <Route path="/colors/:color" element={<Color colorName={colorName} />} />
+        <Route path="*" element={<Navigate to="/"/>}/>
       </Routes>
     </div>
   );

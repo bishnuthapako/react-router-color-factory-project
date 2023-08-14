@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 function Home({colorName}) {
 
 
-
   return (
    <>
      <div className='text-center navbar'>

@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
 function Color({colorName}) {
   const navigate = useNavigate();
   const {color} = useParams();
   const findColor = colorName.find((cname)=> cname.name === color);
- 
+  
+  useEffect(()=>{
+    if(!findColor.name){
+      navigate("/")
+    }
+  },[color, findColor, navigate])
 
   return (
     <div className='color-background text-center' style={{backgroundColor:`${findColor.color}`}}>

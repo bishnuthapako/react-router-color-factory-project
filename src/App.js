@@ -6,21 +6,31 @@ import Color from "./page/Color"
 import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
 
-const INITIAL_COLOR = [
-  {
-    id: uuid(),
-    name: "pink",
-    color: "pink"
-  },
-  {
-    id: uuid(),
-    name: "green",
-    color: "green"
+// const INITIAL_COLOR = [
+//   {
+//     id: uuid(),
+//     name: "pink",
+//     color: "pink"
+//   },
+//   {
+//     id: uuid(),
+//     name: "green",
+//     color: "green"
+//   }
+// ]
+
+function localFormData(){
+  const localForm = localStorage.getItem("formData");
+  if(localForm){
+    return JSON.parse(localStorage.getItem("formData"))
+  } else {
+    return []
   }
-]
+}
+const newData = localFormData();
 
 function App() {
-  const [colorName, setColorName] = useState(INITIAL_COLOR);
+  const [colorName, setColorName] = useState(newData);
 
   function addNewColor(newColor) {
     setColorName(prev => [{ id: uuid(), ...newColor }, ...prev]);
@@ -34,7 +44,7 @@ function App() {
         <Route path="/colors" element={<Home colorName={colorName} />} />
         <Route path="/new" element={<AddColor addNewColor={addNewColor} />} />
         <Route path="/colors/:color" element={<Color colorName={colorName} />} />
-        <Route path="*" element={<Navigate to="/"/>}/>
+        {/* <Route path="*" element={<Navigate to="/"/>}/> */}
       </Routes>
     </div>
   );

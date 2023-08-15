@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function Home({colorName}) {
+function Home({colorName=[]}) {
 
-
+console.log(colorName, 'homeColor')
   return (
    <>
      <div className='text-center navbar'>

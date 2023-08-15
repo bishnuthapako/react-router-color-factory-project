@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
 
@@ -12,7 +12,10 @@ function AddColor({addNewColor}) {
   }
   
   const [formData, setFormData] = useState(INITIAL_DATA);
-  console.log(formData.color, 'color')
+  
+  useEffect(()=>{
+    localStorage.setItem("formData", JSON.stringify(formData))
+  },[formData])
 
   function handleInputData(e){
     const {name, value} = e.target;

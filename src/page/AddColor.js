@@ -11,7 +11,7 @@ function AddColor({addNewColor}) {
     color: ""
   }
   
-  const [formData, setFormData] = useState(INITIAL_DATA);
+  const [formData, setFormData] = useState([INITIAL_DATA]);
   
   useEffect(()=>{
     localStorage.setItem("formData", JSON.stringify(formData))

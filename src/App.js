@@ -30,7 +30,7 @@ function localFormData(){
 const newData = localFormData();
 
 function App() {
-  const [colorName, setColorName] = useState(newData);
+  const [colorName, setColorName] = useState([newData]);
 
   function addNewColor(newColor) {
     setColorName(prev => [{ id: uuid(), ...newColor }, ...prev]);

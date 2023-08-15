@@ -14,8 +14,8 @@ console.log(colorName, 'homeColor')
         <p className='text-center mt-2 fw-bold'>Please Select The Color</p>
         <div className='text-center'>
          {
-          colorName.map((color)=>(
-            <ul key={color.id}>
+          colorName.map((color, i)=>(
+            <ul key={i}>
               <li className='list-unstyled'><Link to={`/colors/${color.name}`} className='fw-bolder text-info color-list'>{color.name}</Link></li>
            </ul>
           ))

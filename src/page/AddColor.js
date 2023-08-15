@@ -24,7 +24,7 @@ function AddColor({addNewColor}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addNewColor({ id: uuid(), ...formData });
+    addNewColor({ ...formData });
     setFormData(INITIAL_DATA);
     navigate("/")
 };

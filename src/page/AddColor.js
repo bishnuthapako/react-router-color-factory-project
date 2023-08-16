@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { v4 as uuid } from 'uuid';
+import { stringify, v4 as uuid } from 'uuid';
 
 function AddColor({addNewColor}) {
   const navigate = useNavigate();
@@ -14,18 +14,32 @@ function AddColor({addNewColor}) {
   const [formData, setFormData] = useState([INITIAL_DATA]);
   
   useEffect(()=>{
-    localStorage.setItem("formData", JSON.stringify(formData))
+
   },[formData])
 
   function handleInputData(e){
     const {name, value} = e.target;
-    setFormData(data => ({...data, [name]: value}));
+    setFormData(data => {
+      data[name] = value;
+      return {...data};
+    });
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     addNewColor({ ...formData });
-    setFormData(INITIAL_DATA);
+    console.log(formData)
+    let readFromLS = localStorage.getItem('formData');
+    if (readFromLS) {
+      readFromLS = JSON.parse(readFromLS)
+      readFromLS.push({...formData});
+      localStorage.setItem('formData', JSON.stringify(readFromLS));
+    } else {
+      console.log(typeof(formData))
+      console.log(formData)
+      localStorage.setItem('formData', JSON.stringify(formData));
+    }
+    //setFormData(INITIAL_DATA);
     navigate("/")
 };
 
